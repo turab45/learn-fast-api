@@ -13,10 +13,11 @@ class Event(BaseModel):
     class Config:
         schema_extra = {
             "example" : {
+                "id" : 1,
                 "title" : "Some Event",
                 "image" : "https://linktomyimage.com/image.png",
                 "description" : "Description of the event.",
                 "tags" : ["event", "planner"],
-                "Location" : "Zoom"
+                "location" : "Zoom"
             }
         }
