@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi import APIRouter
-from todo import app as todo_app
+from todo import todo_router
 
 router = APIRouter()
 
@@ -16,4 +16,4 @@ async def say_hello() -> dict:
     return {"message": "Welcome to the APIRouter app route."}
 
 
-app.include_router(todo_app)
+app.include_router(todo_router)

@@ -1,5 +1,6 @@
+from fastapi import Form
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 
 class Item(BaseModel):
     item : str
@@ -15,8 +16,15 @@ class Item(BaseModel):
 
         
 class Todo(BaseModel):
-    id : int
-    item : Item
+    id : Optional[int]
+    item : str
+
+    @classmethod
+    def as_form(
+        cls,
+        item: str = Form(...),
+    ):
+        return cls(item=item)
 
     class Config:
         schema_extra = {
